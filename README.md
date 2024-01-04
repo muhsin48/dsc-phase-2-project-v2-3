@@ -1,145 +1,75 @@
-## Housing Price Prediction Model README
-### Overview
+# **KING COUNTY PROPERTY SALES ANALYSIS**
 
-This repository contains the implementation and analysis of multiple linear regression models for predicting housing prices. The goal is to explore the relationship between various features and the price of houses.
+**Authors** Immaculate Mwendwa, Shalom Irungu, Stephen Kariuki, Stella Ndegwa, Muhsin Ahmed and Joan Wambua.
 
-### Business problem:
+## Project Overview
 
-The real estate agency aims to provide valuable advice to homeowners on how specific home features will impact the estimated value of their homes. The primary objective is to help homeowners make informed decisions about which features could potentially yield the highest return on investment in terms of increased property value.
+### Business Problem
 
+King County, with a population of 2.252 million, is witnessing rapid growth in its housing market due to strong demand and limited supply, resulting in a fiercely competitive environment. The population increase, driven by the influx of new employees and rising wages for higher-income households, has contributed to some of the nation's fastest-growing house prices. The housing crisis is primarily fueled by supply and demand imbalances. As data scientists, our focus is on offering valuable advice to homeowners and real estate developers in King County, guiding them on how specific home features can impact the estimated value of their properties.
 
+The objectives for this project include:
 
+* To **Develop a model that will assist home buyers and home sellers identify attributes that influence the prices of houses.**
+* To **Develop regression models that will guide the real eatate agencies on pricing.**
+* To **Determine features that have the biggest impact on the sale price of a house and by how much.**
 
+### The Data
 
-### Data:
+The data we use in this project is the King County House Sales dataset which covers property sales from 2014 to 2015, comprising of 21,420 records with details on home features like bedroom count and room sizes.
 
+## Data Preparation
 
-We have been provided with The King County House Sales dataset which contains property sales between year 2014 - 2015 and 21,420 records of houses sold. Each record in the data set gives features such as number of bedrooms, the size of various rooms in square feet, about the individual homes.
+We applied appropriate preprocessing methods to our tabular data in order to set it up for sucessful statistical analysis. This included handling missing values, handling categorical data and handling outliers. We also performed feature engineering as part of this preprocessing.
 
+## Exploratory Data Analysis
 
-Column descriptions for King County Data Set
+To understand the relationship between our independent variables and the dependent variable (Price), we delved into the following areas:
+* Independent variables and their correlation with each other and price.
+* Independent variables with a significant correlation with price.
+* Featrues that exhibit multicollinearity together.
 
-*   id - unique identified for a house
-*   dateDate - house was sold
-*   pricePrice - is prediction target
-*   bedroomsNumber - of Bedrooms/House
-*   bathroomsNumber - of bathrooms/bedrooms
-*   sqft_livingsquare - footage of the home
-*   sqft_lotsquare - footage of the lot
-*   floorsTotal - floors (levels) in house
-*   waterfront - House which has a view to a waterfront
-*   view - Has been viewed
-*   condition - How good the condition is ( Overall )
-*   grade - overall grade given to the housing unit, based on King County
-*   grading system
-*   sqft_above - square footage of house apart from basement
-*   sqft_basement - square footage of the basement
-*   yr_renovated - Year when house was renovated
-*   zipcode - zip
-*   yr_built - Built Year
-*   lat - Latitude coordinate
-*   long - Longitude coordinate
-*   sqft_living15 - The square footage of interior housing living space for the nearest 15 neighbors
-*   sqft_lot15 - The square footage of the land lots of the nearest 15 neighbors
+## Modeling
 
+We constructed our baseline model utilizing sqft_living due to its highest correlation with Price. Subsequently, we employed an iterative approach, engaging in the construction of various models through a systematic and incremental process, which ultimately led us to the development of our final regression model. Below is an illustration of our final regression model.
+![Final Regression Model](<Final Regression Model.png>)
 
+## Regression Results
 
+### Validity of the Model:
 
+Although the model provides an explanation for a substantial portion of the variance in housing prices, there is a recognized need for additional investigation to gain a deeper understanding of the impact of bathrooms and to improve the overall validity of the model.
 
+### Significant Property Features:
 
+Bedrooms, sqft_living, view, condition, and grade emerge as pivotal factors influencing housing prices, presenting indispensable considerations for both prospective buyers and sellers in the real estate market.
 
+### Limitations of the Model:
 
+It's important to acknowledge the model's inherent limitations, and in addressing these constraints, log transformation was implemented to adhere to the assumptions of linearity in the modeling process.
 
+## Recommendations
+* Model 5 findings suggest:
 
+1. Prioritize bedrooms, sqft_living, view, condition, and grade for accurate pricing.
+2. Enhance property features to elevate grade and communicate financial gains.
+3. Address bathroom impact inconsistency by refining variables.
+4. Promote affordable properties with fewer bedrooms.
+5. Leverage scenic views with visuals to attract buyers.
+6. Continuously improve the model with additional features and refinements.
 
+## Next Steps
+* It is imperative to gather additional data on the homes to ensure a comprehensive examination and avoid overlooking any essential features that could significantly impact the analysis.
+* Additionally, considering alternative methodologies beyond regression may be contemplated as a means to fulfill the necessary assumptions and enhance the overall robustness of the analytical approach.
 
+## Necessary Links
 
+* **Jupyter Notebook** [Notebook](<Jupyter Notebook.ipynb>)
+* **Presentation** [Non Technical Presentation](<Group 16 Project Presentation.pdf>)
 
+## Repository Structure
 
-
-
-### Objectives
-1. Develop a model that will assist home buyers and home sellers identify attributes that influence the prices of houses.
-
-2. Develop regression models that will guide the real eatate agencies on pricing.
-
-3. Determine features that have the biggest impact on the sale price of a house and by how much.
-
-
-
-
-
-
-#### Models
-Model 1a: Single Predictor - sqft_living
-R-squared: 0.493
-Interpretation: Approximately 49.3% of the variance in the dependent variable is explained by sqft_living alone.
-Model 1b: Single Predictor - Transformed Price
-R-squared: 0.483
-Interpretation: Around 48.3% of the variance in the log-transformed price is explained by the predictor.
-
-Model 2: All Features
-R-squared: 0.499
-Interpretation: Including all available predictors improves the explanation of variance compared to Model 1, but it's still relatively modest.
-Model 3: Addressing Multicollinearity and Low Correlation
-R-squared: 0.560
-Adj. R-squared: 0.559
-Interpretation: Improved explanation of variance by addressing multicollinearity and low correlation.
-
-Model 4: Baseline and Categorical Variables
-R-squared: 0.580
-Adj. R-squared: 0.580
-Interpretation: Further improvement, especially with the inclusion of categorical variables.
-
-Model 5: More Features, Categorical Data, and Low p-values
-R-squared: 0.590
-Adj. R-squared: 0.589
-Interpretation: Highest explanatory power among the mentioned models.
-
-#### Data Preparation
-Here we will check for duplicates and eliminate them if any, check for missing or null values, outliers and decide on the most appropriate method of handling them and also look at the data types and format them to the most appropriate data type that is suitable for our analysis.
-
-Handling missing values
-
-#### Best Model
-Model 5 is chosen as the best model due to its higher R-squared value (0.590) and adjusted R-squared value (0.589).
-
-Evaluation
-Assumptions of Linear Regression
-Linearity: Verified through regression plots.
-Normality: Checked using Q-Q plots and histograms of residuals.
-Homoscedasticity: Homoscedasticity test p-value: 1.1098177622590325e-60.
-Independence: Durbin-Watson Statistic: 1.9744406888716102.
-All variables pass the assumptions of linearity, normality, and homoscedasticity.
-
-### Recommendations:
-based on findings from our model:
-
-Consider the importance of bedrooms, sqft_living, view, condition, and grade when estimating or predicting housing prices.
-
-Focus on upgrading property features to improve the overall grade. Communicate the potential financial returns associated with higher-grade properties.
-
-Investigate the inconsistency in the impact of bathrooms on pricing. Collect additional data or refine the variable to better capture its significance.
-
-Consider promoting properties with fewer bedrooms for buyers who prioritize cost-effectiveness. Highlight the advantages of smaller bedroom counts in terms of affordability.
-
-Capitalize on properties with better views, incorporating visuals and descriptions that showcase the scenic surroundings to attract potential buyers.
-
-Continuous efforts to improve the model can be made by exploring additional relevant features and refining existing ones.
-
-### Conclusions:
-Model Validity:
-
-The model provides a substantial explanation of housing price variance. However, the impact of bathrooms needs further investigation to enhance the model's validity.
-
-Property Features Influence Pricing:
-
-Bedrooms, sqft_living, view, condition, and grade significantly influence housing prices. These features are essential considerations for buyers and sellers.
-
-There are limitations to the model and we used log transformation to meet assupmtions of linearity
-
-### NEXT STEPS
-
-gathering additional data on the homes as there may be key features missing.
-
-methods other than regression could be used to meet assumptions
+├── README.md                           
+├── Jupyter Notebook.ipynb   
+├── Presentation.pdf  
+├── data                                
